@@ -16,7 +16,14 @@ module ONIX
     xml_accessor :supplier_role, :from => "SupplierRole", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :supply_to_country, :from => "SupplyToCountry"
     xml_accessor :supply_to_territory, :from => "SupplyToTerritory"
-    xml_accessor :availability_status_code, :from => "AvailabilityStatusCode", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
+    xml_accessor :availability_code, :from => "AvailabilityCode", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
+    xml_accessor(:on_sale_date, :from => "OnSaleDate", :to_xml => ONIX::Formatters.yyyymmdd) do |val|
+      begin
+        Date.parse(val)
+      rescue
+        nil
+      end
+    end
     xml_accessor :product_availability, :from => "ProductAvailability", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor :stock, :from => "Stock", :as => [ONIX::Stock]
     xml_accessor :pack_quantity, :from => "PackQuantity", :as => Fixnum
