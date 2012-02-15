@@ -25,7 +25,9 @@ module ONIX
     xml_accessor :audience_ranges, :from => "AudienceRange", :as => [ONIX::AudienceRange]
     xml_accessor :text, :from => "OtherText", :as => [ONIX::OtherText]
     xml_accessor :media_files, :from => "MediaFile", :as => [ONIX::MediaFile]
+    xml_accessor :other_text, :from => "OtherText", :as => [ONIX::OtherText]
     xml_accessor :imprints, :from => "Imprint", :as => [ONIX::Imprint]
+    xml_accessor :sets, :from => "Set", :as => [ONIX::Set]
     xml_accessor :publishers, :from => "Publisher", :as => [ONIX::Publisher]
     xml_accessor :publishing_status, :from => "PublishingStatus", :as => Fixnum, :to_xml => ONIX::Formatters.two_digit
     xml_accessor(:publication_date, :from => "PublicationDate", :to_xml => ONIX::Formatters.yyyymmdd) do |val|
